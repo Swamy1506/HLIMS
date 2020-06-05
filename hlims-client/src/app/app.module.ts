@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BorrowerComponent } from './borrower/borrower.component';
+import { BorrowerComponent } from './borrower/borrower/borrower.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { ReactiveFormsModule } from '@angular/forms';
 

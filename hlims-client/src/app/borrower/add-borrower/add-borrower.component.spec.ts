@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BorrowerComponent } from './borrower.component';
+import { BorrowerComponent } from './add-borrower.component';
 
 describe('BorrowerComponent', () => {
   let component: BorrowerComponent;

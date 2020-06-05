@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BorrowerService } from 'src/app/services/borrower.service';
 
 @Component({
   selector: 'app-borrower',
@@ -11,7 +12,7 @@ export class BorrowerComponent implements OnInit {
   // borroewer form
   borrowerForm: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private borrowerService: BorrowerService) { }
 
   // lifecycle hook
   ngOnInit() {
@@ -40,8 +41,10 @@ export class BorrowerComponent implements OnInit {
 
     const borrowerInfo = this.borrowerForm.getRawValue();
     if (borrowerInfo) {
-
       console.log(borrowerInfo);
+      this.borrowerService.saveBorrower(borrowerInfo).subscribe(res => {
+
+      });
     }
 
   }
