@@ -33,6 +33,13 @@ export class LoanService {
         );
     }
 
+    getAllProperties(): Observable<any> {
+        return this.http.get(this.serverUrl + 'Property/GetAllProperties', { observe: 'response' }).pipe(
+            retry(1),
+            catchError(this.errorHandl)
+        );
+    }
+
     // Error handling
     errorHandl(error) {
         let errorMessage = '';

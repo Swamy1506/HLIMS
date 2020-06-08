@@ -1,53 +1,57 @@
 <div class="container borrower-form">
-    <h2>Create Borrower Form</h2>
-    <form [formGroup]="borrowerForm">
+    <h2>Create Loan Form</h2>
+    <form [formGroup]="loanForm">
         <div class="row">
             <div class="form-group col-xs-4 col-sm-4 col-md-4">
-                <label for="firstName">First Name</label>
-                <input type="text" class="form-control" id="firstName" formControlName="firstName"
-                    placeholder="Enter First Name">
-            </div>
-            <div class="form-group col-xs-4 col-sm-4 col-md-4">
-                <label for="middleName">Middle Name</label>
-                <input type="text" class="form-control" id="middleName" formControlName="middleName"
-                    placeholder="Enter Middle Name">
-            </div>
-            <div class="form-group col-xs-4 col-sm-4 col-md-4">
-                <label for="lastName">Last Name</label>
-                <input type="text" class="form-control" id="lastName" formControlName="lastName"
-                    placeholder="Enter Last Name">
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-xs-2 col-sm-2 col-md-2">
-                <label for="gender">Gender</label>
-                <select class="form-control" id="gender" formControlName="gender">
-                    <option>Male</option>
-                    <option>Female</option>
+                <select class="form-control" id="propertyId" formControlName="propertyId">
+                    <option value="">Select Borrower</option>
+                    <option [value]="borrower.id" *ngFor="let borrower of borrowers">
+                        {{ borrower.firstName + ' '+  borrower.lastName  }}</option>
                 </select>
             </div>
-            <div class="form-group col-xs-6 col-sm-6 col-md-6">
-                <label for="email">Email address</label>
-                <input type="email" class="form-control" id="email" formControlName="email"
-                    placeholder="name@example.com">
+        </div>
+        <div class="row">
+            <div class="form-group col-xs-4 col-sm-4 col-md-4">
+                <select class="form-control" id="propertyId" formControlName="propertyId">
+                    <option value="">Select Property</option>
+                    <option [value]="property.id" *ngFor="let property of properties">{{property.address}}</option>
+                </select>
             </div>
             <div class="form-group col-xs-4 col-sm-4 col-md-4">
-                <label for="phone">Phone</label>
-                <input type="text" class="form-control" id="phone" formControlName="phNumber" placeholder="1234567890">
+                <select class="form-control" id="bankId" formControlName="bankId">
+                    <option value="">Select A Bank</option>
+                    <option [value]="bank.id" *ngFor="let bank of banks">{{bank.name}}</option>
+                </select>
             </div>
         </div>
-
         <div class="row">
-            <div class="form-group col-xs-6 col-sm-6 col-md-6">
-                <label for="address">Street Address </label>
-                <textarea class="form-control" id="address" formControlName="streetAddress"
-                    placeholder="Required example textarea"></textarea>
+            <div class="form-group col-xs-4 col-sm-4 col-md-4">
+                <label for="orginalAmount">Orginal Amount</label>
+                <input type="text" class="form-control" id="orginalAmount" formControlName="orginalAmount"
+                    placeholder="Enter Orginal Amount">
+            </div>
+            <div class="form-group col-xs-4 col-sm-4 col-md-4">
+                <label for="orginalTenure">Orginal Tenure</label>
+                <input type="text" class="form-control" id="orginalTenure" formControlName="orginalTenure"
+                    placeholder="Enter Orginal Tenure">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-xs-4 col-sm-4 col-md-4">
+                <label for="remainingAmount">Remaining Amount</label>
+                <input type="text" class="form-control" id="remainingAmount" formControlName="remainingAmount"
+                    placeholder="Enter Remaining Amount">
+            </div>
+            <div class="form-group col-xs-4 col-sm-4 col-md-4">
+                <label for="remainingTenure">Remaining Tenure</label>
+                <input type="text" class="form-control" id="remainingTenure" formControlName="remainingTenure"
+                    placeholder="Enter Remaining Tenure">
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="text-right">
-                    <button type="button" class="btn btn-primary save-btn" (click)="saveBorrower()">Save</button>
+                    <button type="button" class="btn btn-primary save-btn" (click)="saveLoan()">Save</button>
                 </div>
             </div>
         </div>

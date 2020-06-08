@@ -12,7 +12,6 @@ export class ListBorrowersComponent implements OnInit {
   constructor(private borrowerService: BorrowerService) { }
 
   ngOnInit() {
-
     this.getAllBorrowers();
   }
 

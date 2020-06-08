@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routedAppComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -17,7 +17,8 @@ import { LoanService } from './services/loan.service';
     AppComponent,
     BorrowerComponent,
     SideNavComponent,
-    ListBorrowersComponent
+    ListBorrowersComponent,
+    routedAppComponents
   ],
   imports: [
     BrowserModule,

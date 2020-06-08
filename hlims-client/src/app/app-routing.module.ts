@@ -14,6 +14,9 @@ const routes: Routes = [
   { path: '', redirectTo: 'view-borrowers', pathMatch: 'full' },
 ];
 
+
+export const routedAppComponents = [BorrowerComponent, ListBorrowersComponent, LoanComponent, ViewLoansComponent];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
