@@ -1,0 +1,30 @@
+<div class="container wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="inner">
+                <h3>Borrowers Data</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Id </th>
+                            <th>Name </th>
+                            <th>Email</th>
+                            <th>Gender</th>
+                            <th>Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let borrower of borrowers">
+                            <td>{{ borrower.id }}</td>
+                            <td>{{ borrower.firstName + ' '+  borrower.lastName  }}</td>
+                            <td>{{ borrower.email }}</td>
+                            <td>{{ borrower.gender }}</td>
+                            <td>{{ borrower.streetAddress }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>

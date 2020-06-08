@@ -4,8 +4,8 @@ import { BorrowerService } from 'src/app/services/borrower.service';
 
 @Component({
   selector: 'app-borrower',
-  templateUrl: './borrower.component.html',
-  styleUrls: ['./borrower.component.scss']
+  templateUrl: './add-borrower.component.html',
+  styleUrls: ['./add-borrower.component.scss']
 })
 export class BorrowerComponent implements OnInit {
 
@@ -23,13 +23,14 @@ export class BorrowerComponent implements OnInit {
   // intialixe rective form
   intiBorrowerForm() {
     this.borrowerForm = this.fb.group({
+      id: [0],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       middleName: [''],
       gender: ['Male'],
       email: ['', Validators.required],
       phNumber: ['', Validators.required],
-      address: ['', Validators.required],
+      streetAddress: ['', Validators.required],
     });
   }
 
@@ -40,10 +41,14 @@ export class BorrowerComponent implements OnInit {
   saveBorrower() {
 
     const borrowerInfo = this.borrowerForm.getRawValue();
+    borrowerInfo.phone = borrowerInfo.phNumber;
+    borrowerInfo.properties = [];
     if (borrowerInfo) {
       console.log(borrowerInfo);
       this.borrowerService.saveBorrower(borrowerInfo).subscribe(res => {
-
+        if (res.body > 0) {
+          console.log('borrower created succssfully');
+        }
       });
     }
 
