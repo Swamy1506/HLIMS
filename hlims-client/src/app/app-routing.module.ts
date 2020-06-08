@@ -4,14 +4,14 @@ import { ListBorrowersComponent } from './borrower/list-borrowers/list-borrowers
 import { BorrowerComponent } from './borrower/add-borrower/add-borrower.component';
 import { ViewLoansComponent } from './loan/list-loans/list-loans.component';
 import { LoanComponent } from './loan/add-loan/add-loan.component';
-
+import { ADAuthGuard } from './authentication/authGuards/authGurd.service';
 
 const routes: Routes = [
   { path: 'add-borrower', component: BorrowerComponent },
-  { path: 'view-borrowers', component: ListBorrowersComponent },
+  { path: 'view-borrowers', component: ListBorrowersComponent, canActivate: [ADAuthGuard] },
   { path: 'add-loan', component: LoanComponent },
   { path: 'view-loans', component: ViewLoansComponent },
-  { path: '', redirectTo: 'view-borrowers', pathMatch: 'full' },
+  { path: '', redirectTo: 'view-borrowers', pathMatch: 'full', canActivate: [ADAuthGuard] },
 ];
 
 
