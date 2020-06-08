@@ -1,0 +1,30 @@
+<div class="container wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="inner">
+                <h3>Loans Data</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Id </th>
+                            <th>Orginal Amount </th>
+                            <th>Orginal Tenture</th>
+                            <th>Remaining Amount</th>
+                            <th>Remaining Tenure</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let loan of loans">
+                            <td>{{ loan.id }}</td>
+                            <td>{{ loan.orginalAmount }}</td>
+                            <td>{{ loan.orginalTenure }}</td>
+                            <td>{{ loan.remainingAmount }}</td>
+                            <td>{{ loan.remainingTenure }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>

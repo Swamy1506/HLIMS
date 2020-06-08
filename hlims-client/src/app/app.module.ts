@@ -10,6 +10,7 @@ import { BorrowerComponent } from './borrower/add-borrower/add-borrower.componen
 import { HttpClientModule } from '@angular/common/http';
 import { BorrowerService } from './services/borrower.service';
 import { CommonModule } from '@angular/common';
+import { LoanService } from './services/loan.service';
 
 @NgModule({
   declarations: [
@@ -19,13 +20,13 @@ import { CommonModule } from '@angular/common';
     ListBorrowersComponent
   ],
   imports: [
-    HttpClientModule,
     BrowserModule,
     CommonModule,
+    HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [BorrowerService],
+  providers: [BorrowerService, LoanService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
