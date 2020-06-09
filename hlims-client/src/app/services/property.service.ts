@@ -4,7 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { retry, catchError } from 'rxjs/operators';
 @Injectable()
-export class BorrowerService {
+export class PropertyService {
 
     private serverUrl = environment.endpoints.api;
 
@@ -18,17 +18,20 @@ export class BorrowerService {
 
     constructor(private http: HttpClient) { }
 
-    saveBorrower(borrowerinfo: any): Observable<any> {
-        const body = JSON.stringify(borrowerinfo);
-        return this.http.post(this.serverUrl + 'Borrower/SaveBorrower', body, {
+    saveProperty(propertyInfo: any): Observable<any> {
+        const body = JSON.stringify(propertyInfo);
+        return this.http.post(this.serverUrl + 'Property/SaveProperty', body, {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json'
             }), observe: 'response'
         });
     }
 
-    getAllBorrowers(): Observable<any> {
-        return this.http.get(this.serverUrl + 'Borrower/GetAllBorrowers', { observe: 'response' });
+    getAllProperties(): Observable<any> {
+        return this.http.get(this.serverUrl + 'Property/GetAllProperties', { observe: 'response' }).pipe(
+            retry(1),
+            catchError(this.errorHandl)
+        );
     }
 
     // Error handling

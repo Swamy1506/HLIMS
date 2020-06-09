@@ -1,0 +1,28 @@
+<div class="container wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="inner">
+                <h3>Properties Data</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Id </th>
+                            <th>Owner Info </th>
+                            <th>Property Type</th>
+                            <th>Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let prop of properties">
+                            <td>{{ prop.id }}</td>
+                            <td>{{ prop.borrower.firstName+ ' '+ prop.borrower.lastName }}</td>
+                            <td>{{ prop.type }}</td>
+                            <td>{{ prop.address }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>

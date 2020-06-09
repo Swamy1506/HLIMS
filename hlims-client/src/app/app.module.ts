@@ -14,6 +14,9 @@ import { LoanService } from './services/loan.service';
 import { MsAdalAngular6Module } from 'microsoft-adal-angular6';
 import { InsertAuthTokenInterceptor } from './authentication/interceptors/insert-auth-token-interceptor';
 import { ADAuthGuard } from './authentication/authGuards/authGurd.service';
+import { AddPropertyComponent } from './properties/add-property/add-property.component';
+import { ListPropertiesComponent } from './properties/list-properties/list-properties.component';
+import { PropertyService } from './services/property.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,9 @@ import { ADAuthGuard } from './authentication/authGuards/authGurd.service';
     BorrowerComponent,
     SideNavComponent,
     ListBorrowersComponent,
-    routedAppComponents
+    routedAppComponents,
+    AddPropertyComponent,
+    ListPropertiesComponent
   ],
   imports: [
     BrowserModule,
@@ -37,10 +42,11 @@ import { ADAuthGuard } from './authentication/authGuards/authGurd.service';
         'https://localhost:44378/api/': 'a32f0791-42d1-4bdb-8afc-b0db1fd82d75',
       },
       navigateToLoginRequestUrl: false,
-      cacheLocation: 'sessionStorage'
+      cacheLocation: 'localStorage'
     })
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: InsertAuthTokenInterceptor, multi: true }, ADAuthGuard, BorrowerService, LoanService],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: InsertAuthTokenInterceptor, multi: true }, 
+    ADAuthGuard, BorrowerService, LoanService, PropertyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
