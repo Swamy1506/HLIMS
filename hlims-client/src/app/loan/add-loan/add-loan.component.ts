@@ -67,7 +67,6 @@ export class LoanComponent implements OnInit {
 
   getAllProperties() {
     this.loanService.getAllProperties().subscribe(res => {
-      debugger;
       if (res.body) {
         this.properties = res.body;
       }

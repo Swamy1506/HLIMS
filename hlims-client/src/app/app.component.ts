@@ -14,11 +14,9 @@ export class AppComponent implements OnInit {
   accessToken: string;
 
   constructor(private adalService: MsAdalAngular6Service) {
-    debugger;
   }
   ngOnInit(): void {
     if (this.adalService.isAuthenticated) {
-
     }
   }
 

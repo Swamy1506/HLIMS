@@ -1,1 +1,5 @@
-<p>side-nav works!</p>
+<ul class="nav flex-column" >
+    <li class="nav-item" *ngFor="let route of routes">
+        <a [routerLink]="route.urlLink">{{route.text}}</a>
+    </li>
+</ul>
